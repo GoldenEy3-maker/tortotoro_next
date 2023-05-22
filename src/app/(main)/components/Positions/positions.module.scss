@@ -1,0 +1,45 @@
+.positions {
+  flex: 0 0 30% !important;
+
+  &List {
+    display: grid;
+
+    gap: 1rem;
+  }
+
+  &Item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    overflow: hidden;
+
+    &__image {
+      position: relative;
+
+      width: 70px;
+      height: 70px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+    }
+
+    &__title {
+      flex: 1;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__value {
+      color: hsl(var(--primary-hsl));
+      font-weight: 500;
+      font-size: var(--body-extra-fs);
+    }
+  }
+}
+
+
+

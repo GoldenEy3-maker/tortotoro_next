@@ -1,0 +1,24 @@
+.ripple-element {
+  user-select: none;
+  pointer-events: none;
+
+  display: block;
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  opacity: 0.1;
+
+  background-color: hsl(var(--ripple-hsl));
+
+  transform: scale(0);
+
+  animation: ripple linear forwards;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(3);
+  }
+}

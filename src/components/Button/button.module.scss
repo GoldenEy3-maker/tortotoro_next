@@ -1,0 +1,111 @@
+.btn {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  border-radius: var(--large-shape);
+
+  padding: 0.4rem 1.2rem;
+
+  transition: 300ms ease;
+
+  svg {
+    fill: hsl(var(--primary-hsl));
+    transition: 300ms ease;
+  }
+}
+
+.icon {
+  justify-content: center;
+  gap: 0;
+
+  border-radius: 50%;
+
+  padding: 0.7rem;
+}
+
+.text {
+  color: hsl(var(--primary-hsl));
+}
+
+.filled {
+  --ripple-hsl: var(--default-ripple-hsl);
+
+  color: hsl(var(--on-primary-hsl));
+  background-color: hsl(var(--primary-hsl));
+
+  svg {
+    fill: hsl(var(--on-primary-hsl));
+  }
+}
+
+.outlined {
+  color: hsl(var(--primary-hsl));
+  border: 1px solid hsl(var(--outline-hsl));
+}
+
+.elevated {
+  color: hsl(var(--primary-hsl));
+  background-color: hsl(var(--surface-container-low-hsl));
+  box-shadow: 0 3px 3px hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+}
+
+.onSurface {
+  color: hsl(var(--on-surface-hsl));
+
+  svg {
+    fill: hsl(var(--on-surface-hsl));
+  }
+}
+
+.isDanger {
+  &:not(.onSurface) {
+    color: hsl(var(--on-danger-hsl));
+    svg {
+      fill: hsl(var(--on-danger-hsl));
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .text:hover {
+    box-shadow: var(--primary-offset-bxs)
+      hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+  }
+
+  .filled:hover {
+    background-color: hsl(var(--hover-primary-hsl));
+  }
+
+  .outlined:hover {
+    background-color: hsl(var(--surface-container-low-hsl));
+  }
+
+  .elevated:hover {
+    background-color: hsl(var(--surface-container-high-hsl));
+  }
+
+  .icon:hover {
+    background-color: hsl(var(--surface-container-highest-hsl));
+  }
+
+  .onSurface:hover {
+    color: hsl(var(--primary-hsl));
+
+    svg {
+      fill: hsl(var(--primary-hsl));
+    }
+  }
+
+  .isDanger:hover {
+    color: hsl(var(--on-danger-hsl));
+    background-color: hsl(var(--danger-hsl));
+
+    svg {
+      fill: hsl(var(--on-danger-hsl));
+    }
+  }
+}

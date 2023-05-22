@@ -1,0 +1,83 @@
+.root {
+  position: relative;
+}
+
+.trigger {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 90%;
+  right: 0;
+  z-index: 10;
+
+  width: max-content;
+
+  background-color: hsl(var(--primary-container-hsl));
+
+  opacity: 0;
+  visibility: hidden;
+
+  box-shadow: 0 0 10px hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+
+  border-radius: var(--medium-shape);
+
+  overflow: hidden;
+
+  transition: 300ms ease;
+
+  &[aria-hidden=false] {
+    top: calc(100% + 0.3rem);
+
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &Item {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+
+    width: 100%;
+
+    padding: 0.7rem 1.2rem;
+
+    transition: background-color 300ms ease;
+
+    span {
+      flex-shrink: 0;
+    }
+
+    &._dangerItem {
+      --ripple-hsl: var(--on-danger-hsl);
+
+      color: hsl(var(--on-danger-hsl));
+
+      span {
+        svg {
+          fill: hsl(var(--on-danger-hsl))
+        }
+      }
+    }
+
+    &:focus {
+      outline-offset: -0.3rem;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &Item:hover {
+      background-color: hsl(var(--surface-container-low-hsl));
+
+      &._dangerItem {
+        background-color: hsl(var(--danger-hsl));
+
+      }
+    }
+  }
+}

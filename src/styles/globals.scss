@@ -1,0 +1,39 @@
+@import "./vars.scss";
+@import "./defaults.scss";
+@import "./components/rippleEffect.scss";
+
+.wrapper {
+  display: flex;
+
+  min-height: inherit;
+}
+
+._container {
+  width: 100%;
+  height: 100%;
+  max-width: var(--container-mw);
+
+  padding-inline: var(--container-pgi);
+  margin-inline: auto;
+}
+
+.page-content {
+  flex: 1;
+}
+
+.page-content__wrapper {
+  display: grid;
+
+  padding: var(--safe-area-pd) 1rem;
+
+  gap: 2rem;
+}
+
+.page-title {
+  font-size: var(--headline-l-fs);
+  font-weight: 500;
+}
+
+.rich-text {
+  color: hsl(var(--primary-hsl));
+}

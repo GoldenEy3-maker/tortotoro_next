@@ -1,0 +1,85 @@
+.customSelect {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__wrapper {
+    position: relative;
+
+    max-width: 250px;
+  }
+
+  input {
+    display: none;
+  }
+
+  &Trigger {
+    max-width: inherit;
+
+    &Value {
+      overflow: hidden;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &Icon {
+      flex-shrink: 0;
+    }
+  }
+
+  &Options {
+    position: absolute;
+    top: 90%;
+    right: 0;
+    z-index: 5;
+
+    width: max-content;
+    min-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: hsl(var(--primary-container-hsl));
+
+    border-radius: var(--medium-shape);
+
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+
+    box-shadow: 0 0 10px hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+
+    transition: 300ms ease;
+
+    &[aria-hidden="false"] {
+      top: calc(100% + 0.7rem);
+
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &Option {
+    position: relative;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    padding: 0.7rem 1rem;
+
+    transition: background-color 300ms ease;
+
+    &:focus {
+      outline-offset: -0.3rem;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .customSelectOption:hover {
+    background-color: hsl(var(--surface-container-low-hsl));
+  }
+}

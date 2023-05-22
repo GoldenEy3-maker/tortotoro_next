@@ -1,0 +1,59 @@
+.statsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.statsItem {
+  display: flex;
+}
+
+.statsItem:after {
+  content: "";
+
+  height: 100%;
+
+  margin-inline: auto;
+
+  border-left: 1px dashed hsl(var(--outline-hsl));
+}
+
+.statsItem:last-child:after {
+  display: none;
+}
+
+.statsItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 0.8rem;
+}
+
+.statsItemHeaderProgress {
+  display: flex;
+  align-items: center;
+  background-color: hsl(var(--surface-container-low-hsl));
+  border-radius: var(--large-shape);
+  padding: 0.2rem 0.5rem;
+
+  font-size: var(--body-s-fs);
+}
+
+.statsItemHeaderProgress._danger {
+  background-color: hsl(var(--danger-hsl));
+  color: hsl(var(--on-danger-hsl));
+}
+
+.statsItemHeaderProgress._danger svg {
+  fill: hsl(var(--on-danger-hsl));
+}
+
+.statsItem__value {
+  font-size: var(--title-l-fs);
+  font-weight: bold;
+  color: hsl(var(--primary-hsl));
+}
+
+.statsItemFooter {
+  margin-top: 0.3rem;
+}

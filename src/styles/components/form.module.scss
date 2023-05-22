@@ -1,0 +1,16 @@
+.form {
+  display: grid;
+  gap: 2rem;
+}
+
+.formInputs {
+  display: grid;
+  gap: calc(1.5rem + var(--primary-y-offset-bxs));
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

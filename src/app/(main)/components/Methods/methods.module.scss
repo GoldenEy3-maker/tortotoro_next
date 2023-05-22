@@ -1,0 +1,39 @@
+.methods {
+  flex: 0 1 30% !important;
+}
+
+.methodsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.methodsItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.methodsItem__icon {
+  padding: 0.5rem;
+
+  border-radius: var(--large-shape);
+
+  background-color: hsl(var(--surface-container-low-hsl));
+
+  svg {
+    fill: hsl(var(--primary-hsl))
+  }
+}
+
+.methodsItem__title {
+  flex: 1;
+}
+
+.methodsItem__value {
+  font-weight: 500;
+
+  font-size: var(--body-extra-fs);
+
+
+  color: hsl(var(--primary-hsl));
+}

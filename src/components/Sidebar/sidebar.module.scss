@@ -1,0 +1,88 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  max-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+
+  overflow: auto;
+
+  padding-top: var(--safe-area-pd);
+  padding-inline: 3rem;
+
+  width: 100%;
+  max-width: 400px;
+}
+
+.sidebarNavList {
+  display: grid;
+  gap: 1rem;
+}
+
+.sidebarNavList .devider {
+  width: 100%;
+  height: 1px;
+
+  background-color: hsl(var(--outline-hsl));
+  opacity: 0.5;
+}
+
+.sidebarNavLink {
+  width: 100%;
+  padding: 0.8rem 1.5rem !important;
+  font-size: var(--title-l-fs);
+}
+
+.sidebarProfile {
+  position: sticky;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  background-color: hsl(var(--surface-hsl));
+
+  padding-block: var(--safe-area-pd);
+
+  margin-top: auto;
+}
+
+.sidebarProfile__avatar {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+}
+
+.sidebarProfile__avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebarProfile__name {
+  flex-grow: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: var(--title-l-fs);
+  font-weight: bold;
+}
+
+.sidebarProfile__btn {
+  flex-shrink: 0;
+}

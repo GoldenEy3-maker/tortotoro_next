@@ -1,0 +1,34 @@
+.section {
+  flex: 1;
+
+  background-color: hsl(var(--primary-container-hsl));
+
+  padding: 2rem;
+  border-radius: var(--large-shape);
+  box-shadow: 0 0 10px hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+}
+
+.sectionGroup {
+  display: flex;
+  //flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: var(--title-l-fs);
+  font-weight: 500;
+}
+
+.sectionContent {
+  display: grid;
+  gap: 2rem;
+
+  margin-top: 1.5rem;
+}

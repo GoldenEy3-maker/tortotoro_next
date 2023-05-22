@@ -1,0 +1,10 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  padding-block: var(--safe-area-pd);
+
+  background-color: hsla(var(--surface-hsl), .8);
+  backdrop-filter: blur(var(--backdrop-filter-blur));
+}
