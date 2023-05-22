@@ -4,8 +4,8 @@ import { WorkersApi, WorkersStoreInitializer, useWorkersStore } from "./store"
 async function WorkersPage() {
   const res = await fetch(
     `${
-      process.env.VERCEL_URL
-        ? "https://" + process.env.VERCEL_URL
+      process.env.NEXT_PUBLIC_VERCEL_URL
+        ? "https://" + process.env.NEXT_PUBLIC_VERCEL_URL
         : process.env.API_URL
     }/api/workers`
   )
