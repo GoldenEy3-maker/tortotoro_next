@@ -4,7 +4,9 @@ import { ShiftsApi, useShiftsStore } from "./store"
 import { ShiftsStoreInitializer } from "./store/initializer"
 
 async function ShiftsPage() {
-  const res = await fetch("http://127.0.0.1:3000/api/shifts")
+  const res = await fetch(
+    `${process.env.VERCEL_URL ?? process.env.API_URL}/api/shifts`
+  )
   const data = (await res.json()) as ShiftsApi[]
 
   useShiftsStore.setState({ data: data })
