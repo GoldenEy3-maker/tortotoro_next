@@ -3,7 +3,11 @@ import { WorkersApi, WorkersStoreInitializer, useWorkersStore } from "./store"
 
 async function WorkersPage() {
   const res = await fetch(
-    `${process.env.VERCEL_URL ?? process.env.API_URL}/api/workers`
+    `${
+      process.env.VERCEL_URL
+        ? "https://" + process.env.VERCEL_URL
+        : process.env.API_URL
+    }/api/workers`
   )
   const data = (await res.json()) as WorkersApi[]
 
