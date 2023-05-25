@@ -3,21 +3,21 @@
 import Button from "@/components/Button"
 import * as Section from "@/components/Section"
 import * as Toolbar from "@/components/Toolbar"
-import React, { ChangeEvent, ReactNode } from "react"
-import { useShiftsStore } from "./store"
+import { ChangeEvent, ReactNode } from "react"
+import { useOrdersStore } from "./store"
 
-function ShiftsLayout({ children }: { children: ReactNode }) {
-  const searchValue = useShiftsStore((state) => state.searchValue)
+export default function OrdersLayout({ children }: { children: ReactNode }) {
+  const searchValue = useOrdersStore((state) => state.searchValue)
 
-  function searchChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-    useShiftsStore.setState({ searchValue: event.target.value })
+  function searchToolbarHandler(event: ChangeEvent<HTMLInputElement>) {
+    useOrdersStore.setState({ searchValue: event.target.value })
   }
 
   return (
-    <main className="shifts page-content__wrapper">
+    <main className="orders page-content__wrapper">
       <Section.Root>
         <Section.Header>
-          <Section.Title>Смены</Section.Title>
+          <Section.Title>Заказы</Section.Title>
           <Button type="button" variant="filled" title="Добавить">
             <span>
               <svg
@@ -36,8 +36,8 @@ function ShiftsLayout({ children }: { children: ReactNode }) {
           <Toolbar.Root>
             <Toolbar.Search
               label="Поиск"
+              onChange={searchToolbarHandler}
               value={searchValue}
-              onChange={searchChangeHandler}
             />
           </Toolbar.Root>
           {children}
@@ -46,5 +46,3 @@ function ShiftsLayout({ children }: { children: ReactNode }) {
     </main>
   )
 }
-
-export default ShiftsLayout

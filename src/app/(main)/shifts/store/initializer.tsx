@@ -1,9 +1,9 @@
 "use client"
 
 import { useRef } from "react"
-import { ShiftsApi, useShiftsStore } from "."
+import { ShiftsStore, useShiftsStore } from "."
 
-export function ShiftsStoreInitializer({ data }: { data: ShiftsApi[] }) {
+export function ShiftsStoreInitializer({ data }: Pick<ShiftsStore, "data">) {
   const ref = useRef(false)
 
   if (!ref.current) {

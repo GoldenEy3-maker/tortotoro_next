@@ -40,12 +40,12 @@
 }
 
 .statsItemHeaderProgress._danger {
-  background-color: hsl(var(--danger-hsl));
-  color: hsl(var(--on-danger-hsl));
+  background-color: hsl(var(--danger-container-hsl));
+  color: hsl(var(--danger-hsl));
 }
 
 .statsItemHeaderProgress._danger svg {
-  fill: hsl(var(--on-danger-hsl));
+  fill: hsl(var(--danger-hsl));
 }
 
 .statsItem__value {

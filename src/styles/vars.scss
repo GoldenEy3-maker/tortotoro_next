@@ -9,8 +9,10 @@
   --ripple-base-hsl: 0, 0%;
   --default-hover-base-hsl: 0, 0%;
   --danger-base-hsl: 0, 100%;
-  --success-base-hsl: 118, 100%;
-  --on-success-base-hsl: 118, 49%;
+  --success-container-base-hsl: 118, 100%;
+  --success-base-hsl: 118, 49%;
+  --warning-container-base-hsl: 54, 100%;
+  --warning-base-hsl: 54, 73%;
 
   /* HSL */
   --surface-hsl: var(--surface-base-hsl), 95%;
@@ -27,10 +29,13 @@
   --modified-ripple-hsl: var(--primary-hsl);
   --ripple-hsl: var(--modified-ripple-hsl);
   --default-hover-hsl: var(--default-hover-base-hsl), 90%;
-  --danger-hsl: var(--danger-base-hsl), 95%;
-  --on-danger-hsl: var(--danger-base-hsl), 50%;
-  --success-hsl: var(--success-base-hsl), 85%;
-  --on-success-hsl: var(--on-success-base-hsl), 50%;
+  --danger-container-hsl: var(--danger-base-hsl), 96%;
+  --danger-hsl: var(--danger-base-hsl), 45%;
+  --hover-danger-container-hsl: var(--danger-base-hsl), 93%;
+  --success-container-hsl: var(--success-container-base-hsl), 85%;
+  --success-hsl: var(--success-base-hsl), 50%;
+  --warning-hsl: var(--warning-base-hsl), 42%;
+  --warning-container-hsl: var(--warning-container-base-hsl), 92%;
 
   /* Sizes */
   --container-mw: calc(1400px + var(--container-pgi) * 2);

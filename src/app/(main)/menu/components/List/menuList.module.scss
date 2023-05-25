@@ -1,0 +1,88 @@
+.menu {
+  &List {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  &Item {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+
+    padding: 2rem;
+
+    border-radius: var(--large-shape);
+    box-shadow: var(--primary-offset-bxs)
+      hsla(var(--primary-hsl), var(--primary-alpha-bxs));
+
+    &__img {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    &Info {
+      display: grid;
+      gap: 1rem;
+
+      &Header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        overflow: hidden;
+
+        &__title {
+          font-size: var(--title-l-fs);
+          font-weight: 500;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        button {
+          flex-shrink: 0;
+        }
+      }
+
+      &__text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+      }
+
+      &Options {
+        &__title {
+          font-size: var(--body-extra-fs);
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        &Item {
+          list-style: inside;
+
+          &._remove {
+            color: hsl(var(--danger-hsl));
+          }
+
+          &._add {
+            color: hsl(var(--success-hsl));
+          }
+        }
+      }
+    }
+
+    &Actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      margin-top: auto;
+
+      width: 100%;
+    }
+  }
+}

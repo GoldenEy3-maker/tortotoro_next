@@ -3,22 +3,22 @@
 import Button from "@/components/Button"
 import * as Section from "@/components/Section"
 import * as Toolbar from "@/components/Toolbar"
-import React, { ChangeEvent, ReactNode } from "react"
-import { useShiftsStore } from "./store"
+import { ChangeEvent, ReactNode } from "react"
+import { useMenuStore } from "./store"
 
-function ShiftsLayout({ children }: { children: ReactNode }) {
-  const searchValue = useShiftsStore((state) => state.searchValue)
+export default function MenuLayout({ children }: { children: ReactNode }) {
+  const searchValue = useMenuStore((state) => state.searchValue)
 
-  function searchChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-    useShiftsStore.setState({ searchValue: event.target.value })
+  function searchHandler(event: ChangeEvent<HTMLInputElement>) {
+    useMenuStore.setState({ searchValue: event.target.value })
   }
 
   return (
-    <main className="shifts page-content__wrapper">
+    <div className="menu page-content__wrapper">
       <Section.Root>
         <Section.Header>
-          <Section.Title>Смены</Section.Title>
-          <Button type="button" variant="filled" title="Добавить">
+          <Section.Title>Меню</Section.Title>
+          <Button variant="filled" title="Добавить">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,15 +36,13 @@ function ShiftsLayout({ children }: { children: ReactNode }) {
           <Toolbar.Root>
             <Toolbar.Search
               label="Поиск"
+              onChange={searchHandler}
               value={searchValue}
-              onChange={searchChangeHandler}
             />
           </Toolbar.Root>
           {children}
         </Section.Content>
       </Section.Root>
-    </main>
+    </div>
   )
 }
-
-export default ShiftsLayout

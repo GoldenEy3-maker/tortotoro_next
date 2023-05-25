@@ -1,3 +1,5 @@
+import { Role } from "@prisma/client"
+
 interface SetDynamicClassProps {
   statics: (string | undefined)[]
   dynamics: string[][]
@@ -44,3 +46,38 @@ export function generateContextError(hookName: string, providerName: string) {
   return new Error(`The "${hookName}" hook must be used within the "${providerName}" provider!`)
 }
 
+export function generateSplicedUUID() {
+  const uuid = crypto.randomUUID()
+
+  return uuid.slice(0, uuid.indexOf('-'))
+}
+
+export function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('ru-RU', {
+    month: 'numeric',
+    day: "numeric",
+    year: "numeric"
+  }).format(date)
+}
+
+export function formatTime(date: Date) {
+  return new Intl.DateTimeFormat('ru-RU', {
+    hour: "numeric",
+    minute: "numeric"
+  }).format(date)
+}
+
+export function concatTime(startTime: string, endTime: string) {
+  return `${startTime}-${endTime}`
+}
+
+export function formatWorkerRole(role: Role) {
+  switch (role) {
+    case "ADMIN":
+      return "Админ"
+    case "COOK":
+      return "Повар"
+    case "WAITER":
+      return "Официант"
+  }
+}

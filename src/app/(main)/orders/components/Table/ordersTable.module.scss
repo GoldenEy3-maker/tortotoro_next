@@ -1,0 +1,30 @@
+.highlighted {
+  color: hsl(var(--primary-hsl));
+}
+
+._reject {
+  color: hsl(var(--danger-hsl));
+}
+
+._inProcess {
+  color: hsl(var(--warning-hsl));
+}
+
+._ready {
+  color: hsl(var(--success-hsl));
+}
+
+.remove {
+  color: hsl(var(--danger-hsl));
+
+  text-decoration: line-through;
+}
+
+.add {
+  color: hsl(var(--success-hsl));
+}
+
+.optionsList {
+  display: grid;
+  place-items: center;
+}

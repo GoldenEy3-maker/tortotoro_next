@@ -80,7 +80,7 @@ function Sidebar() {
           </li>
           <li>
             <Button
-              href="#"
+              href={RouterPaths.OrdersPage}
               className={styles.sidebarNavLink}
               onSurface={true}
               title="Заказы"
@@ -100,7 +100,7 @@ function Sidebar() {
           </li>
           <li>
             <Button
-              href="#"
+              href={RouterPaths.MenuPage}
               className={styles.sidebarNavLink}
               title="Меню"
               onSurface={true}
@@ -116,47 +116,6 @@ function Sidebar() {
                 </svg>
               </span>
               <p>Меню</p>
-            </Button>
-          </li>
-          <hr className={styles.devider} />
-          <li>
-            <Button
-              href="#"
-              className={styles.sidebarNavLink}
-              onSurface={true}
-              title="Профиль"
-            >
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 96 960 960"
-                  width="24"
-                >
-                  <path d="M480 576q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160 896V784q0-34 17.5-62.5T224 678q62-31 126-46.5T480 616q66 0 130 15.5T736 678q29 15 46.5 43.5T800 784v112H160Zm80-80h480v-32q0-11-5.5-20T700 750q-54-27-109-40.5T480 696q-56 0-111 13.5T260 750q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560 416q0-33-23.5-56.5T480 336q-33 0-56.5 23.5T400 416q0 33 23.5 56.5T480 496Zm0-80Zm0 400Z" />
-                </svg>
-              </span>
-              <p>Профиль</p>
-            </Button>
-          </li>
-          <li>
-            <Button
-              href={RouterPaths.AuthPage}
-              className={styles.sidebarNavLink}
-              title="Авторизация"
-              onSurface={true}
-            >
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 96 960 960"
-                  width="24"
-                >
-                  <path d="M480 936v-80h280V296H480v-80h280q33 0 56.5 23.5T840 296v560q0 33-23.5 56.5T760 936H480Zm-80-160-55-58 102-102H120v-80h327L345 434l55-58 200 200-200 200Z" />
-                </svg>
-              </span>
-              <p>Авторизация</p>
             </Button>
           </li>
         </ul>

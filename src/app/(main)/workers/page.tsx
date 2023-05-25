@@ -1,15 +1,9 @@
 import WorkersTable from "@/app/(main)/workers/components/Table"
-import { WorkersApi, WorkersStoreInitializer, useWorkersStore } from "./store"
+import { getWorkers } from "@/server/worker"
+import { WorkersStoreInitializer, useWorkersStore } from "./store"
 
 async function WorkersPage() {
-  const res = await fetch(
-    `${
-      process.env.NEXT_PUBLIC_VERCEL_URL
-        ? "https://" + process.env.NEXT_PUBLIC_VERCEL_URL
-        : process.env.API_URL
-    }/api/workers`
-  )
-  const data = (await res.json()) as WorkersApi[]
+  const data = await getWorkers()
 
   useWorkersStore.setState({ data: data })
 

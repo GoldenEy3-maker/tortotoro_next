@@ -27,7 +27,7 @@
 
   transition: 300ms ease;
 
-  &[aria-hidden=false] {
+  &[aria-hidden="false"] {
     top: calc(100% + 0.3rem);
 
     opacity: 1;
@@ -42,7 +42,6 @@
     align-items: center;
     gap: 0.5rem;
 
-
     width: 100%;
 
     padding: 0.7rem 1.2rem;
@@ -54,13 +53,13 @@
     }
 
     &._dangerItem {
-      --ripple-hsl: var(--on-danger-hsl);
+      --ripple-hsl: var(--danger-hsl);
 
-      color: hsl(var(--on-danger-hsl));
+      color: hsl(var(--danger-hsl));
 
       span {
         svg {
-          fill: hsl(var(--on-danger-hsl))
+          fill: hsl(var(--danger-hsl));
         }
       }
     }
@@ -75,8 +74,7 @@
       background-color: hsl(var(--surface-container-low-hsl));
 
       &._dangerItem {
-        background-color: hsl(var(--danger-hsl));
-
+        background-color: hsl(var(--danger-container-hsl));
       }
     }
   }

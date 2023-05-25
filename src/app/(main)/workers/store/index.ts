@@ -1,14 +1,6 @@
 import { ValueOf } from "@/ts/utils"
+import { User } from "@prisma/client"
 import { create } from 'zustand'
-
-export interface WorkersApi {
-  id: string,
-  name: string,
-  jobTitle: string,
-  date: string,
-  hoursPerMonth: number,
-  shiftsPerMonth: number
-}
 
 export const SortValues = {
   ByName: "Имени",
@@ -19,10 +11,10 @@ export const SortValues = {
 
 export type SortValues = ValueOf<typeof SortValues>
 
-interface WorkersStore {
+export interface WorkersStore {
   searchValue: string
   sortValue: SortValues
-  data: WorkersApi[] | null
+  data: User[] | null
 }
 
 export const useWorkersStore = create<WorkersStore>((set) => ({

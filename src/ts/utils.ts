@@ -7,3 +7,5 @@ export type Context<S, G = S> = {
 } & S | null
 
 export type SetStateContext<S> = (key: keyof S, value: ValueOf<S>) => void
+
+export type UnwrapArray<T> = T extends Array<infer R> ? R : never

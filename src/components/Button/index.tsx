@@ -16,6 +16,7 @@ export interface ButtonProps
   > {
   variant?: "text" | "elevated" | "filled" | "outlined" | "icon"
   isDanger?: boolean
+  isWarning?: boolean
   href?: string
   onSurface?: boolean
 }
@@ -31,6 +32,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       href,
       children,
       isDanger,
+      isWarning,
       ...props
     },
     ref
@@ -45,7 +47,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles.btn,
           styles[variant],
           onSurface ? styles.onSurface : undefined,
-          isDanger ? styles.isDanger : undefined
+          isDanger ? styles.isDanger : undefined,
+          isWarning ? styles.isWarning : undefined
         )}
         ref={ref}
         {...props}

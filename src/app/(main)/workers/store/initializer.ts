@@ -1,9 +1,9 @@
 'use client'
 
 import { useRef } from "react"
-import { WorkersApi, useWorkersStore } from "."
+import { WorkersStore, useWorkersStore } from "."
 
-export function WorkersStoreInitializer({ data }: { data: WorkersApi[] }) {
+export function WorkersStoreInitializer({ data }: Pick<WorkersStore, 'data'>) {
   const initializedRef = useRef(false)
 
   if (!initializedRef.current) {

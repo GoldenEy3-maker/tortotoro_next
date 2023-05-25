@@ -1,17 +1,32 @@
+import { prisma } from "@/server/db"
+import { getShifts } from "@/server/shift"
 import React from "react"
 import ShiftsTable from "./components/Table"
-import { ShiftsApi, useShiftsStore } from "./store"
-import { ShiftsStoreInitializer } from "./store/initializer"
+import { ShiftsStoreInitializer, useShiftsStore } from "./store"
+
+async function createTestShift() {
+  const workers = await prisma.user.findMany({
+    where: {
+      role: {
+        not: "ADMIN",
+      },
+    },
+  })
+
+  await prisma.shift.create({
+    data: {
+      endDate: new Date(2023, 2, 1, 18, 0),
+      startDate: new Date(2023, 2, 1, 9, 0),
+      status: "OPEN",
+      workers: {
+        connect: workers.map((worker) => ({ id: worker.id })),
+      },
+    },
+  })
+}
 
 async function ShiftsPage() {
-  const res = await fetch(
-    `${
-      process.env.NEXT_PUBLIC_VERCEL_URL
-        ? "https://" + process.env.NEXT_PUBLIC_VERCEL_URL
-        : process.env.API_URL
-    }/api/shifts`
-  )
-  const data = (await res.json()) as ShiftsApi[]
+  const data = await getShifts()
 
   useShiftsStore.setState({ data: data })
 

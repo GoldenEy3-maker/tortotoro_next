@@ -6,14 +6,94 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id       String @id @default(uuid())
-  login    String
-  password String
+  id             String   @id @default(uuid())
+  login          String   @unique
+  password       String
+  name           String
+  role           Role
+  birthDate      DateTime
+  hoursPerMonth  Int?
+  shiftsPerMonth Int?
+  Shift          Shift?   @relation(fields: [shiftId], references: [id])
+  shiftId        String?
+  Cook           Order[]  @relation(name: "cook")
+  Waiter         Order[]  @relation(name: "waiter")
+}
 
-  @@index([id])
+model Shift {
+  id String @id @default(uuid())
+
+  startDate DateTime
+  endDate   DateTime
+
+  status ShiftStatus
+
+  workers User[]
+}
+
+model Order {
+  id String @id @default(uuid())
+
+  cook   User @relation(name: "cook", fields: [cookId], references: [id])
+  waiter User @relation(name: "waiter", fields: [waiterId], references: [id])
+
+  positions Position[]
+  status    OrderStatus
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cookId    String
+  waiterId  String
+}
+
+model Position {
+  id            String   @id @default(uuid())
+  menu          Menu     @relation(fields: [menuId], references: [id])
+  menuId        String
+  Order         Order?   @relation(fields: [orderId], references: [id])
+  orderId       String?
+  count         Int
+  addOptions    String[] @default([])
+  removeOptions String[] @default([])
+}
+
+model Menu {
+  id            String     @id @default(uuid())
+  title         String
+  description   String
+  price         Int
+  status        MenuStatus
+  Position      Position[]
+  addOptions    String[]
+  removeOptions String[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+enum Role {
+  ADMIN
+  COOK
+  WAITER
+}
+
+enum ShiftStatus {
+  OPEN
+  CLOSE
+}
+
+enum OrderStatus {
+  READY
+  INPROCESS
+  ACCEPTED
+  REJECTED
+}
+
+enum MenuStatus {
+  HIDE
+  VISIBLE
 }

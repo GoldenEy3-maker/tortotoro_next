@@ -1,11 +1,11 @@
-.statusRowCell {
-  color: hsl(var(--on-success-hsl));
+.highlighted {
+  color: hsl(var(--primary-hsl));
+}
+
+._open {
+  color: hsl(var(--success-hsl));
 }
 
 ._close {
-  color: hsl(var(--on-danger-hsl));
-}
-
-.idRowCell {
-  color: hsl(var(--primary-hsl));
+  color: hsl(var(--danger-hsl));
 }

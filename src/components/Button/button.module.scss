@@ -62,10 +62,26 @@
 }
 
 .isDanger {
+  --ripple-hsl: var(--danger-hsl);
+
   &:not(.onSurface) {
-    color: hsl(var(--on-danger-hsl));
+    color: hsl(var(--danger-hsl));
     svg {
-      fill: hsl(var(--on-danger-hsl));
+      fill: hsl(var(--danger-hsl));
+    }
+  }
+
+  &.elevated {
+    background-color: hsl(var(--danger-container-hsl));
+    box-shadow: 0 3px 3px hsla(var(--danger-hsl), var(--primary-alpha-bxs));
+  }
+}
+
+.isWarning {
+  &:not(.onSurface) {
+    color: hsl(var(--warning-hsl));
+    svg {
+      fill: hsl(var(--warning-hsl));
     }
   }
 }
@@ -101,11 +117,24 @@
   }
 
   .isDanger:hover {
-    color: hsl(var(--on-danger-hsl));
-    background-color: hsl(var(--danger-hsl));
+    color: hsl(var(--danger-hsl));
+    background-color: hsl(var(--danger-container-hsl));
 
     svg {
-      fill: hsl(var(--on-danger-hsl));
+      fill: hsl(var(--danger-hsl));
+    }
+
+    &.elevated {
+      background-color: hsl(var(--hover-danger-container-hsl));
+    }
+  }
+
+  .isWarning:hover {
+    color: hsl(var(--warning-hsl));
+    background-color: hsl(var(--warning-container-hsl));
+
+    svg {
+      fill: hsl(var(--warning-hsl));
     }
   }
 }
